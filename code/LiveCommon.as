@@ -66,7 +66,8 @@
 			addChild(__btn);
 			
 			
-			__btn.x = 100; __btn.y = 100;
+			__btn.x = 500; __btn.y = 100;
+			__btn.label = "reset"
 			
 			
 			
@@ -91,8 +92,8 @@
             // some listeners
             stage.addEventListener(MouseEvent.MOUSE_DOWN,__onMouseDown);           
             stage.addEventListener(Event.ENTER_FRAME,__onEnterFrame);         
-			//__btn.addEventListener(MouseEvent.MOUSE_DOWN, __onButtonClick);
-			//__btn.addEventListener(Event.
+			__btn.addEventListener(MouseEvent.MOUSE_DOWN, __onButtonClick);
+			
 			
 			//liveModel = new LiveModel(CAPACITY);
 			newCA = new RGCellularAutomata(CAPACITY);
@@ -103,7 +104,7 @@
 		private function __onMouseDown($e:MouseEvent):void{
             stage.removeEventListener(MouseEvent.MOUSE_DOWN,__onMouseDown);
             stage.addEventListener(MouseEvent.MOUSE_UP,__onMouseUp);
-			newCA.nextIteration();
+			//newCA.nextIteration();
 
 			__render();
 						
@@ -128,7 +129,7 @@
 			//liveModel.nextIteration();
 			//liveModel = new LiveModel(CAPACITY);
 			
-			//newCA = new RGCellularAutomata(CAPACITY);
+			newCA = new RGCellularAutomata(CAPACITY);
 			//newCA.nextIteration();
 
 			__render();
@@ -152,7 +153,7 @@
 			//__generationInfo.text = __generationInfo.str + liveModel.generation;
 			
 			//liveModel.nextIteration();
-			//newCA.nextIteration();
+			newCA.nextIteration();
 			
             __render();
         }  
